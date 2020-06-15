@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate , ReloadDelegate{
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         window = UIWindow(frame: UIScreen.main.bounds)
+        goToHomeVC(window:window!)
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+        FirebaseApp.configure()
+        let myDataBase = Database.database().reference()
+        myDataBase.setValue("mora & disha")
         return true
     }
 
@@ -35,3 +44,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+let ad = UIApplication.shared.delegate as! AppDelegate

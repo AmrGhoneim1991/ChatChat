@@ -8,13 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func LoginTapped(_ sender: UIButton) {
+        goTo(identifier: "LoginVC")
+    }
+    
+    @IBAction func RegisterTapped(_ sender: UIButton) {
+        goTo(identifier: "RegisterVC")
+    }
 }
 
